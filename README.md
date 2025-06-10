@@ -52,12 +52,12 @@ A modern Electron application that lets you **record audio anywhere on your syst
 1. **Start the app** with `npm start`
 2. **Press `Ctrl+Shift+Space`** anywhere on your system to open the recording overlay
 3. **Speak clearly** - you'll see the live waveform visualization
-4. **Finish recording** by:
+4. **Stop recording and transcribe** by:
    - Pressing `Ctrl+Shift+Space` again, OR
-   - Clicking the **✓ (confirm)** button to transcribe, OR  
-   - Clicking the **✕ (cancel)** button to discard
-5. **Get your text** - transcription is automatically copied to clipboard
-6. **Paste anywhere** with `Ctrl+V`
+   - Clicking the **✓ (confirm)** button
+5. **Cancel recording** (discard audio) by clicking the **✕ (cancel)** button
+6. **Get your text** - transcription is automatically copied to clipboard
+7. **Paste anywhere** with `Ctrl+V`
 
 ### Alternative Shortcuts
 If `Ctrl+Shift+Space` conflicts with other apps, the following fallbacks are automatically tried:
