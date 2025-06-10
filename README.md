@@ -2,7 +2,9 @@
 
 A modern Electron application that lets you **record audio anywhere on your system** with a global shortcut and instantly get the transcription copied to your clipboard.
 
-![Speech-to-Text Demo](demo.gif)
+![Speech-to-Text App](img/speech-to-text.PNG)
+
+*Clean, modern interface with live waveform visualization and intuitive controls*
 
 ## ✨ Features
 
@@ -26,7 +28,7 @@ A modern Electron application that lets you **record audio anywhere on your syst
 1. **Clone this repository**:
    ```bash
    git clone https://github.com/romanpcloudx/desktop-speech-to-text.git
-   cd speech-to-text
+   cd desktop-speech-to-text
    ```
 
 2. **Install dependencies**:
@@ -65,9 +67,9 @@ If `Ctrl+Shift+Space` conflicts with other apps, the following fallbacks are aut
 ## 🎛️ Technical Details
 
 ### Architecture
-- **Main Process** (`main.js`): Handles global shortcuts, window management, and permissions
-- **Renderer Process** (`renderer.js`): Manages audio recording, waveform visualization, and API calls
-- **Preload Script** (`preload.js`): Secure IPC bridge between main and renderer processes
+- **Main Process** (`src/main.js`): Handles global shortcuts, window management, and permissions
+- **Renderer Process** (`src/renderer.js`): Manages audio recording, waveform visualization, and API calls
+- **Preload Script** (`src/preload.js`): Secure IPC bridge between main and renderer processes
 
 ### Audio Processing
 - **Format**: WebM with Opus codec (fallback: OGG/WAV)
@@ -90,7 +92,7 @@ If `Ctrl+Shift+Space` conflicts with other apps, the following fallbacks are aut
 ## ⚙️ Customization
 
 ### Change Global Shortcut
-Edit the `shortcuts` array in `main.js`:
+Edit the `shortcuts` array in `src/main.js`:
 ```javascript
 const shortcuts = ['Control+Shift+Space', 'YourCustomShortcut'];
 ```
@@ -103,7 +105,7 @@ Edit the CSS in `index.html` to customize:
 - Button styling
 
 ### Adjust Audio Settings
-In `renderer.js`, modify:
+In `src/renderer.js`, modify:
 ```javascript
 const options = { 
   mimeType,
@@ -126,13 +128,16 @@ const params = new URLSearchParams({
 ### Project Structure
 ```
 speech-to-text/
-├── main.js          # Electron main process
-├── renderer.js      # Audio recording & transcription logic
-├── preload.js       # Secure IPC bridge
-├── index.html       # UI and styles
-├── package.json     # Dependencies and scripts
-├── .env             # API keys (create this)
-└── README.md        # This file
+├── src/
+│   ├── main.js          # Electron main process
+│   ├── renderer.js      # Audio recording & transcription logic
+│   └── preload.js       # Secure IPC bridge
+├── img/
+│   └── speech-to-text.PNG  # App screenshot
+├── index.html           # UI and styles
+├── package.json         # Dependencies and scripts
+├── .env                 # API keys (create this)
+└── README.md            # This file
 ```
 
 ### Debug Mode
