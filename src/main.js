@@ -3,7 +3,7 @@
 
 const { app, globalShortcut, BrowserWindow, ipcMain, clipboard } = require('electron');
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '.env') });
+require('dotenv').config({ path: path.resolve(__dirname, '..', '.env') });
 
 if (!process.env.DEEPGRAM_API_KEY) {
   console.warn('Warning: DEEPGRAM_API_KEY is not set. Please create a .env file.');
@@ -34,7 +34,7 @@ function createOverlayWindow() {
     },
   });
 
-  overlayWindow.loadFile(path.join(__dirname, 'index.html'));
+  overlayWindow.loadFile(path.join(__dirname, '..', 'index.html'));
 
   overlayWindow.on('closed', () => {
     overlayWindow = null;
