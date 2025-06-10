@@ -1,0 +1,18 @@
+{
+  "name": "speech-to-text-clipboard",
+  "version": "1.0.0",
+  "description": "Electron app that records audio via a global shortcut, sends it to Deepgram for transcription and copies the result to the clipboard.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "electron": "^29.0.0"
+  }
+}

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voice Recorder</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background: transparent;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-user-select: none;
+        overflow: hidden;
+      }
+
+      #container {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 16px 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        min-width: 260px;
+        -webkit-app-region: drag;
+        position: relative;
+      }
+
+      #waveform-container {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px;
+      }
+
+      #wave {
+        width: 150px;
+        height: 40px;
+      }
+
+      #controls {
+        display: flex;
+        gap: 8px;
+      }
+
+      .btn {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 14px;
+        color: #495057;
+        -webkit-app-region: no-drag;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+      }
+
+      #cancelBtn {
+        background: #f3f3f3;
+        color: #666;
+      }
+
+      #cancelBtn:hover {
+        background: #eeeeee;
+      }
+
+      #confirmBtn {
+        background: #f3f3f3;
+        color: #666;
+      }
+
+      #confirmBtn:hover {
+        background: #eeeeee;
+      }
+
+      .loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #f3f3f3;
+        border-top: 2px solid #4f8cff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        z-index: 10;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      .hidden {
+        display: none !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="waveform-container">
+        <canvas id="wave"></canvas>
+      </div>
+      <div id="controls">
+        <button id="cancelBtn" class="btn">✕</button>
+        <button id="confirmBtn" class="btn">✓</button>
+      </div>
+      <div id="spinner" class="loader"></div>
+    </div>
+
+    <script src="renderer.js"></script>
+  </body>
+</html>
